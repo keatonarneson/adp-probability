@@ -60,12 +60,45 @@ form {
 
 label {
   margin: 10px;
-
   color: white;
 }
 
 input {
   padding: 10px;
+}
+
+.draft-wrapper {
+  overflow-x: auto;
+}
+
+.draft-table {
+  width: 100%;
+}
+
+.draft-table td:nth-child(even) {
+  background-color: #dddddd;
+  border: 1px solid #fff;
+}
+
+.draft-table td:nth-child(odd) {
+  background-color: #fff;
+}
+
+th {
+  background-color: rgba(58, 108, 189, 0.9);
+  color: #fff;
+}
+
+button {
+  width: 100%;
+  background-color: #dddddd;
+  border: 10px solid #dddddd;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 @media (max-width: 1920px) {

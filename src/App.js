@@ -3,10 +3,12 @@ import './App.css';
 import Papa from 'papaparse';
 import NormalDistribution from 'normal-distribution';
 import csv from './static/adp-probability.tsv';
+import DraftSlots from './DraftSlots';
 
 function App() {
   const [rows, setRows] = useState(null);
   const [draftSlot, setDraftSlot] = useState(1);
+  const [draftToggle, setDraftToggle] = useState(false);
 
   const probability = (mean, standardDeviation, draftSlot) => {
     const normDist = new NormalDistribution(mean, standardDeviation);
@@ -23,6 +25,10 @@ function App() {
     if (e.keyCode === 13) {
       e.preventDefault();
     }
+  };
+
+  const handleClick = e => {
+    setDraftToggle(!draftToggle);
   };
 
   useEffect(() => {
@@ -44,6 +50,9 @@ function App() {
           <em>All drafts up to 2-24-2021</em>
         </small>
       </header>
+      {draftToggle && <DraftSlots />}
+
+      <button onClick={handleClick}>Toggle Draft Pick Table</button>
       <form>
         <label>Draft Slot</label>
         <input
